@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasbeeh Counter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+        }
+
+        iframe {
+            width: 100%;
+            height: 90vh;
+            border: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: black;
+            color: white;
+            position: relative;
+        }
+
+        /* Footer buttons container */
+        .footer-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Adjust space between buttons */
+        }
+
+        .footer-buttons button {
+            background-color: transparent;
+            color: white;
+            border: none;
+            font-size: 18px;
+            padding: 10px;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .footer-buttons button:hover {
+            color: #ff0; /* Hover effect */
+        }
+
+        /* Home button styling */
+        .home-button {
+            font-size: 18px; /* Match font size of other buttons */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Tasbeeh Counter</h1>
+    </header>
+
+    <iframe src="https://www.tasbih.org/" title="Tasbeeh Counter" id="tasbeehFrame"></iframe>
+
+    <!-- Footer with buttons -->
+    <footer>
+        <div class="footer-buttons">
+            <!-- Home Button -->
+            <button class="home-button" onclick="window.location.href='home.html'">
+                <i class="fas fa-home"></i> Home
+            </button>
+
+            <!-- Quran Button -->
+            <button onclick="window.location.href='quran.html'">
+                <i class="fas fa-book"></i> Quran
+            </button>
+
+            <!-- Supplication Button -->
+            <button onclick="window.location.href='supplication.html'">
+                <i class="fas fa-pray"></i> Supplication
+            </button>
+
+            <!-- Dua Button -->
+            <button onclick="window.location.href='zikr.html'">
+                <i class="fas fa-mosque"></i> Dua
+            </button>
+
+            <!-- Share Button -->
+            <button onclick="window.location.href='index.html'">
+                <i class="fas fa-share-alt"></i> Share
+            </button>
+        </div>
+
+        <p>© 2024 Quran App. All rights reserved. | Developed by Syed Shariq Hasan</p>
+    </footer>
+
+    <script>
+        // JavaScript for handling button clicks (if needed)
+    </script>
+
+</body>
+</html>

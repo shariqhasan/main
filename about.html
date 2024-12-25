@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn and understand the teachings of the Quran with our interactive app.">
+  <meta property="og:title" content="About Us - Quran App">
+  <meta property="og:description" content="Learn and understand the teachings of the Quran with our interactive app.">
+  <meta property="og:image" content="path/to/your/image.jpg">
+  <title>About Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:600|Cairo" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Layout Styles */
+    .quran-image {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 20px 0;
+      opacity: 0;  /* Initially hidden */
+      animation: fadeIn 2s ease-out forwards;  /* Fade-in animation */
+    }
+
+    .quran-image img {
+      width: 45%;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .quran-image img:hover {
+      transform: scale(1.05);  /* Zoom effect on hover */
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .quran-description {
+      width: 45%;
+      text-align: justify;
+    }
+
+    .quran-description h3 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+
+    .quran-description p {
+      font-size: 1em;
+      line-height: 1.6;
+    }
+
+    /* Google Play Button Styles */
+    .play-store-button {
+      width: 150px;
+      height: auto;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .play-store-button:hover {
+      transform: scale(1.1);  /* Same hover effect as Donate button */
+    }
+
+    /* Buttons Container */
+    .buttons-container {
+      display: flex;
+      justify-content: center; /* Center the buttons */
+      gap: 20px; /* Space between buttons */
+      margin-top: 20px;
+    }
+
+    /* Donate Button Styles */
+    .donate-button {
+      width: 150px; /* Same width as Google Play button */
+      background-color: #4CAF50;  /* Green background */
+      color: white;  /* White text */
+      border: none;
+      padding: 12px 0;  /* Adjust padding for height */
+      text-align: center;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .donate-button:hover {
+      background-color: #45a049;  /* Darker green on hover */
+      transform: scale(1.1);  /* Same hover effect as Google Play button */
+    }
+
+    /* Footer Styles */
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #000000; /* Black background */
+      color: white; /* White text */
+      margin-top: 20px;
+    }
+
+    /* Navigation Bar Styles */
+    nav {
+      background-color: #000000; /* Black background for the navigation bar */
+      padding: 10px 0;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center; /* Center the navigation items */
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white; /* White text color */
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #4CAF50; /* Change color on hover */
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Quran App</h1>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- About Content -->
+  <div class="about-container">
+    <h1>About Us</h1>
+    <p>Welcome to the Quran App, your source for learning and understanding the Quran. This app offers Quranic verses, translations, and interactive features to help you connect with the teachings of Islam.</p>
+
+    <h2>Our Mission</h2>
+    <p>Our mission is to make the teachings of the Quran accessible to everyone, regardless of their background or level of knowledge. We aim to provide an interactive and user-friendly platform for learning.</p>
+
+    <h2>Our Vision</h2>
+    <p>We envision a world where people of all ages and backgrounds can benefit from the wisdom and guidance found in the Quran, fostering peace, compassion, and understanding.</p>
+
+    <!-- Quran Image with Description on Left and Right -->
+    <div class="quran-image">
+      <div>
+        <img src="mnt/data/quran.jpg" alt="Quran Image">
+      </div>
+      <div class="quran-description">
+        <h3>Understanding the Quran</h3>
+        <p>This Quran image represents the holy teachings of Islam, offering insights and guidance for leading a righteous life. Through this app, users can explore Quranic verses and understand their meanings, with the option to listen to recitations and explore different translations.</p>
+      </div>
+    </div>
+
+    <div class="quran-image">
+      <div class="quran-description">
+        <h3>Interactive Features</h3>
+        <p>Our app is designed to be interactive, offering features like verse translation, audio recitations, and a user-friendly interface to engage with the Quran. With our app, users can easily learn and reflect on the teachings of the Quran at their own pace.</p>
+      </div>
+      <div>
+        <img src="mnt/data/tarteel.jpg" alt="Quran Image">
+      </div>
+    </div>
+
+    <!-- Google Play Store and Donate Button Container -->
+    <div class="buttons-container">
+      <a href="https://play.google.com/store/apps/details?id=com.yourapp" target="_blank">
+        <img src="mnt/data/google-play.svg" alt="Download from Google Play" class="play-store-button">
+      </a>
+      <a href="donate.html" target="_blank">
+        <button class="donate-button">Donate</button>
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Quran App. All rights reserved. | Developed by Syed Shariq Hasan.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

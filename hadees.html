@@ -1,0 +1,177 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hadees - Quranic Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .hadees-box {
+            transition: transform 0.3s ease-in-out;
+        }
+        .hadees-box:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <header class="bg-black text-white p-4 text-center">
+        <h1 class="text-2xl font-bold">Hadees - Quranic Website</h1>
+        <div class="mt-4 flex justify-center space-x-4">
+            <button onclick="window.location.href='Hadees/abudaud.html'" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"><i class="fas fa-book"></i> Abu Dawud</button>
+            <button onclick="window.location.href='Hadees/Hadees bukhari.html'" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"><i class="fas fa-book"></i> Bukhari</button>
+            <button onclick="window.location.href='Hadees/sunan ibn maja.html'" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"><i class="fas fa-book"></i> Ibn Majah</button>
+            <button onclick="window.location.href='Hadees/muslim.html'" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"><i class="fas fa-book"></i> Muslim</button>
+            <button onclick="window.location.href='Hadees/tirmidhi.html'" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"><i class="fas fa-book"></i> Tirmidhi</button>
+
+        </div>
+        
+    </header>
+    
+    <section class="hadees-section p-10 text-center bg-white mx-auto my-10 rounded-lg shadow-lg max-w-4xl">
+        <h1 class="text-4xl text-green-500 font-bold">Sayings of the Prophet Muhammad (Peace be upon him)</h1>
+        <p class="text-lg text-gray-700 mt-4">Explore the beautiful and inspiring Hadees to gain knowledge and wisdom.</p>
+    </section>
+
+    <section class="hadees-list flex flex-wrap justify-center gap-6 mx-4" id="hadees-list">
+        <!-- Hadees data will be dynamically inserted here -->
+    </section>
+
+    <footer class="text-center p-4 bg-black text-white mt-10">
+        <div class="footer-buttons">
+            <button onclick="window.location.href='home.html'"><i class="fas fa-home"></i> Home</button>
+            <button onclick="window.location.href='quran.html'"><i class="fas fa-book"></i> Quran</button>
+            <button onclick="window.location.href='supplication.html'"><i class="fas fa-praying-hands"></i> Supplication</button>
+            <button onclick="window.location.href='dua.html'"><i class="fas fa-hand-holding-heart"></i> Dua</button>
+            <button onclick="window.location.href='share.html'"><i class="fas fa-share-alt"></i> Share</button>
+        </div>
+        © 2024 Quran App. All rights reserved. | Developed by Syed Shariq Hasan
+    </footer>
+
+    <div class="floating-menu fixed top-5 right-5 z-50">
+        <button onclick="toggleMenu()" class="text-white text-3xl">☰</button>
+        <div class="menu-items hidden absolute top-12 right-0 bg-white p-4 rounded-lg shadow-lg w-48" id="menuItems">
+            <a href="index.html" class="block text-black py-2 px-4 hover:bg-gray-700 hover:text-white">Quran App</a>
+            <a href="home.html" class="block text-black py-2 px-4 hover:bg-gray-700 hover:text-white">Home</a>
+            <a href="quran.html" class="block text-black py-2 px-4 hover:bg-gray-700 hover:text-white">Surahs</a>
+            <a href="hadees.html" class="block text-black py-2 px-4 hover:bg-gray-700 hover:text-white">Hadees</a>
+            <a href="tasbeeh.html" class="block text-black py-2 px-4 hover:bg-gray-700 hover:text-white">Tasbeeh</a>
+            <a href="zikr.html" class="block text-black py-2 px-4 hover:bg-gray-700 hover:text-white">Zikr</a>
+            <a href="about.html" class="block text-black py-2 px-4 hover:bg-gray-700 hover:text-white">About</a>
+        </div>
+    </div>
+
+    <script>
+        // Function to toggle the menu visibility
+        function toggleMenu() {
+            const menuItems = document.getElementById('menuItems');
+            menuItems.classList.toggle('hidden');
+        }
+
+        // Close the menu if the click is outside the menu or button
+        document.addEventListener('click', function(event) {
+            const menuButton = document.querySelector('.floating-menu button');
+            const menuItems = document.getElementById('menuItems');
+            if (!menuButton.contains(event.target) && !menuItems.contains(event.target)) {
+                menuItems.classList.add('hidden');
+            }
+        });
+
+        // Prevent menu from closing when clicking inside the menu
+        const menuItems = document.getElementById('menuItems');
+        menuItems.addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+
+        // Fetch Hadees data and populate the page
+        const hadeesContainer = document.getElementById('hadees-list');
+
+        function fetchHadeesFromSource(source, apiUrl, imageUrl) {
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    if (data && data.data) {
+                        const hadeesData = data.data;
+                        hadeesContainer.innerHTML += ` 
+                            <div class="hadees-box bg-white p-6 rounded-lg shadow-lg text-center flex-1 max-w-xs">
+                                <img src="${imageUrl}" alt="Placeholder image for ${source} Hadees" class="w-full h-48 object-cover rounded-t-lg">
+                                <h3 class="text-green-500 text-xl font-bold mt-4">${source}: ${hadeesData.header}</h3>
+                                <p class="text-gray-700 mt-2">${hadeesData.hadith_english.trim()}</p>
+                                <p class="text-gray-500 mt-2"><strong>Book:</strong> ${hadeesData.book}</p>
+                                <p class="text-gray-500 mt-2"><strong>Chapter:</strong> ${hadeesData.chapterName}</p>
+                                <p class="text-gray-500 mt-2"><strong>Reference:</strong> ${hadeesData.refno}</p>
+                                <div class="copy-share-buttons flex justify-center gap-4 mt-4">
+                                    <button onclick="copyToClipboard('${hadeesData.hadith_english.trim()}')" class="text-green-500 text-2xl"><i class="fas fa-copy"></i></button>
+                                    <button onclick="shareHadees('${hadeesData.hadith_english.trim()}')" class="text-green-500 text-2xl"><i class="fas fa-share-alt"></i></button>
+                                </div>
+                            </div>
+                        `;
+                    } else {
+                        hadeesContainer.innerHTML += `<p class="text-red-500">No Hadees found for ${source}. Try again!</p>`;
+                    }
+                })
+                .catch(error => {
+                    console.error(`Error fetching Hadees from ${source}:`, error);
+                    hadeesContainer.innerHTML += `<p class="text-red-500">Failed to fetch Hadees from ${source}. Please try again later.</p>`;
+                });
+        }
+
+        function fetchAllHadees() {
+            const randomId = Math.floor(Math.random() * 100) + 1;
+            const apiUrls = {
+                "Abu Dawud": `https://random-hadith-generator.vercel.app/abudawud/${randomId}`,
+                "Bukhari": `https://random-hadith-generator.vercel.app/bukhari/${randomId}`,
+                "Ibn Majah": `https://random-hadith-generator.vercel.app/ibnmajah/${randomId}`,
+                "Muslim": `https://random-hadith-generator.vercel.app/muslim/${randomId}`,
+                "Tirmidhi": `https://random-hadith-generator.vercel.app/tirmidhi/${randomId}`
+            };
+
+            const images = {
+                "Abu Dawud": "https://m.media-amazon.com/images/I/815eAIkBwYL._AC_UY327_FMwebp_QL65_.jpg",
+                "Bukhari": "https://m.media-amazon.com/images/I/81n0vMEt1EL._SY466_.jpg",
+                "Ibn Majah": "https://m.media-amazon.com/images/I/81PPFF3sBxS._AC_UY327_FMwebp_QL65_.jpg",
+                "Muslim": "https://m.media-amazon.com/images/I/71PaRZ6pLMS._AC_UY327_FMwebp_QL65_.jpg",
+                "Tirmidhi": "https://m.media-amazon.com/images/I/5172Gkr4lSL._AC_UY327_FMwebp_QL65_.jpg"
+            };
+
+            for (const source in apiUrls) {
+                fetchHadeesFromSource(source, apiUrls[source], images[source]);
+            }
+        }
+
+        // Call fetchAllHadees on page load
+        window.onload = fetchAllHadees;
+
+        // Function to copy text to clipboard
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Hadees copied to clipboard!');
+            });
+        }
+
+        // Function to share the Hadees
+        function shareHadees(text) {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Share Hadees',
+                    text: text,
+                    url: window.location.href
+                })
+                .then(() => console.log('Hadees shared successfully!'))
+                .catch((error) => console.log('Error sharing Hadees:', error));
+            } else {
+                alert('Sharing is not supported on this device.');
+            }
+        }
+    </script>
+</body>
+</html>

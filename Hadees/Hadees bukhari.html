@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Hadees Bukhari chapters and their corresponding Hadees.">
+    <meta name="keywords" content="Hadees, Bukhari, Islamic App, Hadees Chapters">
+    <title>Hadees Bukhari</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-roboto bg-gray-100">
+    <header class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Hadees Bukhari Chapters</h1>
+            <div class="relative">
+                <input class="border border-gray-300 rounded-lg py-2 px-4 w-64 text-black" id="search" placeholder="Search..." type="text"/>
+                <i class="fas fa-search absolute right-3 top-3 text-gray-400 pointer-events-none"></i>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4">
+        <div class="flex flex-col md:flex-row md:space-x-4">
+            <aside class="flex w-full md:w-1/4 bg-white p-4 rounded shadow">
+                <div class="flex-grow">
+                    <h2 class="text-xl font-bold mb-4">Hadees Chapters</h2>
+                    <ul id="surah-list" class="space-y-2 pt-6 overflow-auto" style="max-height: 300px;">
+                        <!-- Chapter list items will be populated here -->
+                    </ul>
+                </div>
+            </aside>
+
+            <section class="w-full md:w-3/4 bg-white p-4 rounded shadow mt-4 md:mt-0">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold">Hadees Details</h2>
+                </div>
+                <div class="data-display" id="surah-data">
+                    <h3 class="text-lg font-bold mb-2">Click on a Chapter to Fetch Hadees</h3>
+                    <p>This is where the selected Hadees data will be displayed.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="bg-blue-600 text-white p-4 mt-4 fixed bottom-0 w-full">
+        <div class="container mx-auto text-center">
+            <div class="footer-buttons flex justify-center space-x-4 mb-2">
+                <button onclick="window.location.href='home.html'" class="bg-blue-500 text-white py-2 px-4 rounded flex items-center">
+                    <i class="fas fa-home mr-2"></i> Home
+                </button>
+                <button onclick="window.location.href='quran.html'" class="bg-blue-500 text-white py-2 px-4 rounded flex items-center">
+                    <i class="fas fa-book mr-2"></i> Quran
+                </button>
+                <button onclick="window.location.href='supplication.html'" class="bg-blue-500 text-white py-2 px-4 rounded flex items-center">
+                    <i class="fas fa-praying-hands mr-2"></i> Supplication
+                </button>
+                <button onclick="window.location.href='dua.html'" class="bg-blue-500 text-white py-2 px-4 rounded flex items-center">
+                    <i class="fas fa-hand-holding-heart mr-2"></i> Dua
+                </button>
+                <button onclick="window.location.href='share.html'" class="bg-blue-500 text-white py-2 px-4 rounded flex items-center">
+                    <i class="fas fa-share-alt mr-2"></i> Share
+                </button>
+            </div>
+            <p class="footer-text">© 2024 Quran App. All rights reserved. | Developed by Syed Shariq Hasan</p>
+        </div>
+    </footer>
+
+    <script>
+        // Function to fetch all chapters of Hadees Bukhari
+        async function fetchAllChapters() {
+            const chapterListContainer = document.getElementById('surah-list');
+            chapterListContainer.innerHTML = ""; // Clear any existing items
+            const totalChapters = 7558; // Assuming there are 100 chapters in Bukhari (adjust as needed)
+            
+            for (let chapterId = 1; chapterId <= totalChapters; chapterId++) {
+                const chapterElement = document.createElement('div');
+                chapterElement.classList.add('chapter-item', 'p-2', 'cursor-pointer', 'hover:bg-gray-200', 'rounded');
+                chapterElement.textContent = `Chapter ${chapterId}`;
+                chapterElement.addEventListener('click', () => fetchHadeesDetails(chapterId));
+                chapterListContainer.appendChild(chapterElement);
+            }
+        }
+
+        // Function to fetch Hadees details for a selected chapter
+        async function fetchHadeesDetails(chapterId) {
+            const chapterDataContainer = document.getElementById('surah-data');
+            chapterDataContainer.innerHTML = "<p>Loading Hadees...</p>"; // Show loading message
+            try {
+                const response = await fetch(`https://random-hadith-generator.vercel.app/bukhari/${chapterId}`);
+                const data = await response.json();
+                console.log(data); // Log the API response to inspect the structure
+
+                if (data && data.data) {
+                    const hadeesData = data.data;
+
+                    // Extract values, checking for undefined or null
+                    const chapterTitle = hadeesData.chapterName ? hadeesData.chapterName.trim() : 'N/A';
+                    const reference = hadeesData.refno ? hadeesData.refno.trim() : 'N/A';
+                    const hadeesText = hadeesData.hadith_english ? hadeesData.hadith_english.trim() : 'N/A';
+                    const narrator = hadeesData.header ? hadeesData.header.trim() : 'N/A';
+                    const hadeesId = hadeesData.id ? hadeesData.id : 'N/A';
+
+                    // Clear previous content
+                    chapterDataContainer.innerHTML = "";
+
+                    // Create and display the Hadith details
+                    const hadeesElement = document.createElement('div');
+                    hadeesElement.classList.add('hadees-item', 'p-4', 'bg-gray-100', 'rounded', 'mb-4');
+                    hadeesElement.innerHTML = `
+                        <p><strong>Book:</strong> ${hadeesData.book || 'N/A'}</p>
+                        <p><strong>Chapter:</strong> ${chapterTitle}</p>
+                        <p><strong>Reference:</strong> ${reference}</p>
+                        <p><strong>Hadith ID:</strong> ${hadeesId}</p>
+                        <p><strong>Narrator:</strong> ${narrator}</p>
+                        <p><strong>Hadith Text:</strong> ${hadeesText}</p>`;
+
+                    chapterDataContainer.appendChild(hadeesElement);
+                } else {
+                    chapterDataContainer.innerHTML = "<p class='text-red-500'>Invalid data received from the API.</p>";
+                }
+            } catch (error) {
+                console.error("Error fetching Hadees details:", error);
+                chapterDataContainer.innerHTML = "<p class='text-red-500'>Unable to load Hadees. Please try again later.</p>";
+            }
+        }
+
+        // Fetch all chapters when the DOM is ready
+        document.addEventListener('DOMContentLoaded', fetchAllChapters);
+
+        // Search functionality to filter chapters
+        document.getElementById('search').addEventListener('input', function() {
+            const searchValue = this.value.toLowerCase();
+            const items = document.querySelectorAll('#surah-list div');
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(searchValue) ? '' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>

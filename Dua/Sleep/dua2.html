@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>When Waking Up #2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.3em;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            word-wrap: break-word;
+        }
+
+        .arabic {
+            font-size: 2.2em;
+            font-family: 'Amiri', serif;
+            color: #00FF00;
+        }
+
+        .translation {
+            font-size: 1.3em;
+            color: #FFDF00;
+        }
+
+        .transliteration {
+            font-size: 1.3em;
+            color: #FFFFFF;
+        }
+
+        .nav-buttons {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .nav-buttons button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.5em;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px;
+        }
+
+        .nav-buttons button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 5px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .footer-buttons {
+            margin-top: 10px;
+        }
+
+        .footer-buttons button {
+            background-color: #333;
+            color: white;
+            border: none;
+            font-size: 1em;
+            padding: 8px 16px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .footer-buttons button:hover {
+            background-color: #555;
+        }
+
+        .footer-text {
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>When Waking Up #2</h1>
+
+    <p class="arabic">
+        لَا إِلٰهَ إِلاَّ اللّٰهُ وَحْدَهُ لَا شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ، وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيْرٌ، سُبْحَانَ اللّٰهِ، وَالْحَمْدُ لِلّٰهِ، وَلَا إِلٰهَ إِلَّا اللّٰهُ، وَاللّٰهُ أَكْبَرُ، وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللّٰهِ الْعَلِيِّ الْعَظِيْمِ، رَبِّ اغْفِرْ لِيْ
+    </p>
+    <p class="translation">
+        None has the right to be worshipped except Allaah, alone, without any partner, to Him belong sovereignty and praise and He is over all things wholly capable. How perfect Allaah is, and all praise is for Allaah, and none has the right to be worshipped except Allaah, Allaah is the greatest and there is no power nor might except with Allaah, The Most High, The Supreme, O my Lord forgive me.
+    </p>
+    <p class="transliteration">
+        Laa 'illaha 'illallahu wahdahu la shareeka lahu, lahul-mulku wa lahul-hamdu, wa Huwa 'alaa kulli shay'in Qadeer Subhaanallahi, walhamdu lillaahi, wa laa 'ilaha 'illallahu, wallaahu 'akbar, wa laa hawla wa laa Quwwata 'illaa billaahil-'Aliyyil-'Adheem, Rabbighfir lee.
+    </p>
+    <p>
+        Whoever says this will be forgiven, and if he supplicates Allah, his prayer will be answered; if he performs ablution and prays, his prayer will be accepted.
+    </p>
+
+    <!-- Navigation buttons -->
+    <div class="nav-buttons">
+        <!-- Previous Button -->
+        <button id="prev-btn" onclick="window.location.href='dua1.html'">&#8592;</button>
+        
+        <!-- Next Button -->
+        <button id="next-btn" onclick="window.location.href='dua3.html'"> &#8594;</button>
+    </div>
+
+    <!-- Footer with Copy button -->
+    <footer>
+        <div class="footer-buttons">
+            <button onclick="copyText()"><i class="fas fa-copy"></i> Copy</button>
+            <button onclick="window.location.href='home.html'"><i class="fas fa-home"></i> Home</button>
+            <button onclick="window.location.href='quran.html'"><i class="fas fa-book"></i> Quran</button>
+            <button onclick="window.location.href='supplication.html'"><i class="fas fa-praying-hands"></i> Supplication</button>
+            <button onclick="window.location.href='dua.html'"><i class="fas fa-hand-holding-heart"></i> Dua</button>
+            <button onclick="window.location.href='share.html'"><i class="fas fa-share-alt"></i> Share</button>
+        </div>
+        <p class="footer-text">© 2024 Quran App. All rights reserved. | Developed by Syed Shariq Hasan</p>
+    </footer>
+
+    <script>
+        // Function to copy text (for example, Dua text)
+        function copyText() {
+            const textToCopy = document.querySelector('.arabic').innerText; // Copy Arabic text
+            navigator.clipboard.writeText(textToCopy)
+                .then(() => {
+                    alert('Text copied to clipboard!');
+                })
+                .catch(err => {
+                    console.error('Error copying text: ', err);
+                });
+        }
+    </script>
+
+</body>
+</html>

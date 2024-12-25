@@ -1,0 +1,175 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+h1 {
+    margin: 0;
+}
+
+section {
+    padding: 20px;
+}
+
+#surah-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.surah-item {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    cursor: pointer;
+}
+
+.surah-item:hover {
+    background-color: #f0f0f0;
+}
+
+.surah-item h3 {
+    margin: 0;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+}
+
+
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.surah-item {
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.surah-item:hover {
+    background-color: #f4f4f4;
+}
+
+.verse-container {
+    margin-top: 20px;
+}
+
+.verse-number {
+    font-weight: bold;
+}
+
+.arabic-verse {
+    font-size: 1.5em;
+    font-family: 'Amiri', serif; /* Ensure proper Arabic font */
+    direction: rtl;
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.english-translation {
+    font-size: 1.1em;
+    color: #333;
+    margin-top: 10px;
+}
+
+.translation-container {
+    margin-top: 10px;
+}
+
+.toggle-translation {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.toggle-translation:hover {
+    background-color: #45a049;
+}
+
+/* Ensure the page takes up at least 100% of the viewport height */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Container to hold the content and push the footer to the bottom */
+.about-container {
+  padding: 20px;
+  flex: 1; /* Allow the container to take remaining space */
+}
+
+/* Flexbox layout to make sure footer stays at the bottom */
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Footer styling */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: auto; /* Push footer to the bottom */
+}
+
+footer p {
+  margin: 0;
+}
+
+
+/* Only for the Quran App page */
+.quran-app nav ul li a {
+    color: #fff; /* Change text color to white */
+    font-weight: bold; /* Optional: Make the text bold */
+  }
+  
+  .quran-app nav ul li a:hover {
+    color: #ffcc00; /* Change color on hover (e.g., yellow) */
+  }
+  
+  /* Add other specific styles if needed */
+  .quran-app nav {
+    background-color: #333; /* Dark background for navigation */
+  }
+  
+  

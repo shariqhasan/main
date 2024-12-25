@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Quran</title>
+  <style>
+    /* Reset margin and padding for all elements */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styles */
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f8f8f8;
+      display: flex;
+      flex-direction: column;
+      height: 100vh; /* Full viewport height */
+    }
+
+    /* Header styles */
+    header {
+      width: 100%;
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 24px;
+      font-family: 'Amiri', serif;
+      position: fixed; /* Fix header at top */
+      top: 0;
+      left: 0;
+      z-index: 10; /* Ensures it's above iframe */
+    }
+
+    /* Navigation styles */
+    nav {
+      width: 100%;
+      background-color: #444;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      top: 60px; /* Below the header */
+      left: 0;
+      z-index: 10; /* Ensures it's above iframe */
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Content area styles */
+    .content {
+      flex-grow: 1; /* Makes content take the remaining space between header and footer */
+      padding-top: 120px; /* Ensure iframe is not covered by header */
+      padding-bottom: 50px; /* Increased space for footer */
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Adjust iframe to fit header and footer */
+    iframe {
+      width: 100%;
+      height: calc(100vh - 60px - 50px); /* Subtracting header (60px) and footer (50px) height */
+      border: none;
+      position: absolute;
+      top: 80px; /* Added more space from the top (increased by 20px) */
+      left: 0;
+    }
+
+    /* Footer styles */
+    footer {
+      width: 100%;
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px 0; /* Reduced padding for a thinner footer */
+      font-size: 12px; /* Smaller font size */
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: 10; /* Ensures it's above iframe */
+    }
+
+    /* Media Queries for responsiveness */
+    @media (max-width: 768px) {
+      iframe {
+        height: calc(100vh - 60px - 50px); /* Adjusting for tablets */
+      }
+
+      body {
+        font-size: 16px; /* Adjust font size for smaller screens */
+      }
+    }
+
+    @media (max-width: 480px) {
+      iframe {
+        height: calc(100vh - 60px - 50px); /* Adjusting for very small screens */
+      }
+
+      body {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header with Arabic text -->
+  <header>
+    لَا إِلَٰهَ إِلَّا ٱللَّٰهُ مُحَمَّدٌ رَسُولُ ٱللَّٰهِ‎
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="Qaily Quran.html">Qaily Quran</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      
+    </ul>
+  </nav>
+
+  <!-- Content area with embedded Quranic iframe -->
+  <div class="content">
+    <iframe src="https://ayahaday.com/"></iframe>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Daily Quran. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>

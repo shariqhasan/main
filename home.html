@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quranic Website - Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+        }
+
+        nav {
+            position: fixed; /* Fixed position for the menu */
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+
+        nav .menu-icon {
+            color: white;  /* Set the text color to white */
+            font-size: 30px;  /* Increase the size of the icon */
+            cursor: pointer;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background: white;
+            border: 1px solid #ddd;
+            opacity: 0; /* Invisible by default */
+            visibility: hidden; /* Hidden by default */
+            position: absolute;
+            right: 0;
+            top: 60px;
+            width: 150px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth animation */
+        }
+
+        nav ul.visible {
+            opacity: 1; /* Fully visible */
+            visibility: visible; /* Visible */
+        }
+
+        nav ul li {
+            border-bottom: 1px solid #ddd;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .welcome-section {
+            padding: 40px;
+            text-align: center;
+            background: #fff;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+        }
+
+        .welcome-section h1 {
+            color: #4CAF50;
+            font-size: 48px; /* Increased font size */
+            font-family: 'Amiri', serif; /* Arabic-friendly font */
+        }
+
+        .welcome-section p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .content-sections {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .content-box {
+            width: 250px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-box img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .content-box img:hover {
+            transform: scale(1.2);
+        }
+
+        .content-box h3 {
+            color: #4CAF50;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .content-box a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: black;
+            color: white;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            nav ul {
+                width: 100%;
+                top: 50px; /* Adjust for smaller screens */
+            }
+
+            .content-box {
+                width: 100%; /* Full width for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Quranic Website</h1>
+    </header>
+
+    <!-- Floating Menu -->
+    <nav>
+        <div class="menu-icon">☰</div>
+        <ul>
+            <li><a href="index.html">Quran App</a></li>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="quran.html">Surahs</a></li>
+            <li><a href="hadees.html">Hadees</a></li>
+            <li><a href="tasbeeh.html">Tasbeeh</a></li>
+            <li><a href="zikr.html">Zikr</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- Welcome Section -->
+    <section class="welcome-section" id="home">
+        <h1>بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</h1>
+        <p>
+            Welcome to the Quranic Website, a place to explore the beauty of the Quran, Hadees, and Islamic teachings.
+        </p>
+    </section>
+
+    <!-- Featured Content Sections -->
+    <section class="content-sections">
+        <div class="content-box" id="surahs">
+            <a href="quran.html">
+                <img src="HomeImages/quran.png" alt="Surah">
+            </a>
+            <h3>Surahs</h3>
+            <a href="quran.html">Explore Surahs</a>
+        </div>
+        <div class="content-box" id="hadees">
+            <a href="hadees.html">
+            <img src="HomeImages/hadith.png" alt="Hadees">
+            </a>
+            <h3>Hadees</h3>
+            <a href="hadees.html">Read Hadees</a>
+        </div>
+        <div class="content-box" id="tasbeeh">
+            <a href="tasbeeh.html">
+            <img src="HomeImages/tasbih.png" alt="Tasbeeh">
+            </a>
+            <h3>Tasbeeh</h3>
+            <a href="tasbeeh.html">Tasbeeh Counter</a>
+        </div>
+        <div class="content-box" id="zikr">
+            <a href="zikr.html">
+            <img src="HomeImages/Zikr.png" alt="Zikr">
+            </a>
+            <h3>Zikr</h3>
+            <a href="zikr.html">Learn Zikr</a>
+        </div>
+        <div class="content-box" id="about">
+            <a href="about.html">
+            <img src="HomeImages/about.png" alt="About us">
+        </a>
+            <h3>About</h3>
+            <a href="about.html">About Us</a>
+            
+            
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        © 2024 Quran App. All rights reserved. | Developed by Syed Shariq Hasan
+    </footer>
+
+    <script>
+        // JavaScript for floating menu
+        const menuIcon = document.querySelector('.menu-icon');
+        const menuList = document.querySelector('nav ul');
+    
+        // Toggle menu visibility
+        menuIcon.addEventListener('click', () => {
+            menuList.classList.toggle('visible');
+        });
+    
+        // Close menu if mouse clicks or drags outside
+        const closeMenuIfClickedOutside = (event) => {
+            const isClickInsideMenu = menuIcon.contains(event.target) || menuList.contains(event.target);
+            if (!isClickInsideMenu) {
+                menuList.classList.remove('visible');
+            }
+        };
+    
+        // Add both mousedown and pointerdown event listeners
+        document.addEventListener('mousedown', closeMenuIfClickedOutside);
+        document.addEventListener('pointerdown', closeMenuIfClickedOutside);
+    </script>
+    
+</body>
+</html>

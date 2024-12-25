@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quran-App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:600|Cairo" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome CDN -->
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      font-size: 40px;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      flex-direction: column;
+      text-align: center;
+      position: relative;
+    }
+
+    nav {
+      width: 100%;
+      background-color: #333;
+      position: absolute;
+      top: 0;
+      padding: 10px 0;
+      z-index: 10;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .splash-screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background-color: #f8f8f8;
+      z-index: 1000;
+    }
+
+    .image-class {
+      width: 100px;
+      height: auto;
+      animation: rotateScale 3s ease-in-out infinite;
+    }
+
+    @keyframes rotateScale {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.2); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+
+    .animated-text {
+      display: inline-block;
+      margin-top: 20px;
+      position: relative;
+      height: 40px;
+    }
+
+    .word { position: absolute; width: 220px; opacity: 0; }
+    .letter {
+      display: inline-block;
+      transform: translateZ(25px);
+      transform-origin: 50% 50% 25px;
+    }
+
+    .letter.out { transform: rotateX(90deg); transition: transform 0.32s ease; }
+    .letter.behind { transform: rotateX(-90deg); }
+    .letter.in { transform: rotateX(0deg); transition: transform 0.38s ease; }
+
+    .content {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 1s ease, visibility 1s ease;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-top: 100px; /* Add space from top */
+    }
+
+    .content.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .verse {
+      font-size: 28px;
+      margin-top: 20px;
+      color: #333;
+      direction: rtl; /* Ensure Arabic text is displayed correctly */
+      font-family: 'Amiri', serif; /* Use the Amiri font for better Arabic support */
+    }
+
+    .english-verse {
+      font-size: 20px;
+      margin-top: 10px;
+      color: #555;
+      font-family: 'Open Sans', sans-serif; /* Use a good sans-serif font for English text */
+    }
+
+    .arabic-text {
+      font-size: 38px;
+      font-family: 'Amiri', serif;
+      color: #333;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        font-size: 24px;
+      }
+
+      .content {
+        padding-top: 60px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        font-size: 20px;
+      }
+    }
+
+    /* Footer and buttons styling */
+    footer {
+      text-align: center;
+      padding: 15px 0;
+      background-color: #333;
+      color: white;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 14px;
+    }
+
+    .footer-buttons {
+      margin-top: 10px;
+    }
+
+    .footer-buttons button {
+      background-color: #333;
+      color: white;
+      border: none;
+      font-size: 18px;
+      margin: 0 8px;
+      cursor: pointer;
+      padding: 8px 16px;
+      border-radius: 5px;
+    }
+
+    .footer-buttons button:hover {
+      background-color: #555;
+    }
+
+    .footer-buttons button i {
+      margin-right: 6px; /* Space between icon and text */
+    }
+
+    .footer-text {
+      font-size: 12px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="quran.html">Quran Kareem</a></li>
+      <li><a href="daily quran.html">Daily Quran</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="splash-screen">
+    <div class="text">
+      <img src="images/allah.png" alt="Logo" class="image-class">
+      <p class="animated-text">
+        <span class="word wisteria">Tawhid.</span>
+        <span class="word belize">Faith.</span>
+        <span class="word pomegranate">Peace.</span>
+        <span class="word green">Mercy.</span>
+        <span class="word midnight">Guidance.</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="content">
+    <p class="arabic-text">بِسْمِ ٱللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+
+    <div class="verse" id="quran-verse"></div>
+    <div class="english-verse" id="english-verse"></div>
+  </div>
+
+  <footer>
+    <div class="footer-buttons">
+      <button onclick="window.location.href='home.html'"><i class="fas fa-home"></i> Home</button>
+      <button onclick="window.location.href='quran.html'"><i class="fas fa-book"></i> Quran</button>
+      <button onclick="window.location.href='supplication.html'"><i class="fas fa-praying-hands"></i> Supplication</button>
+      <button onclick="window.location.href='dua.html'"><i class="fas fa-hand-holding-heart"></i> Dua</button>
+      <button onclick="window.location.href='share.html'"><i class="fas fa-share-alt"></i> Share</button>
+    </div>
+    <p class="footer-text">© 2024 Quran App. All rights reserved. | Developed by Syed Shariq Hasan</p>
+  </footer>
+
+  <script>
+    const words = document.getElementsByClassName('word');
+    let wordArray = [];
+    let currentWord = 0;
+
+    words[currentWord].style.opacity = 1;
+    Array.from(words).forEach(splitLetters);
+
+    function changeWord() {
+      const cw = wordArray[currentWord];
+      const nw = currentWord === words.length - 1 ? wordArray[0] : wordArray[currentWord + 1];
+
+      cw.forEach((letter, i) => animateLetterOut(cw, i));
+      nw.forEach((letter, i) => {
+        letter.className = 'letter behind';
+        nw[0].parentElement.style.opacity = 1;
+        animateLetterIn(nw, i);
+      });
+
+      currentWord = currentWord === wordArray.length - 1 ? 0 : currentWord + 1;
+    }
+
+    function animateLetterOut(cw, i) {
+      setTimeout(() => cw[i].className = 'letter out', i * 80);
+    }
+
+    function animateLetterIn(nw, i) {
+      setTimeout(() => nw[i].className = 'letter in', 340 + i * 80);
+    }
+
+    function splitLetters(word) {
+      const content = word.innerHTML;
+      word.innerHTML = '';
+      const letters = Array.from(content).map(letter => {
+        const span = document.createElement('span');
+        span.className = 'letter';
+        span.innerHTML = letter;
+        return span;
+      });
+      letters.forEach(letter => word.appendChild(letter));
+      wordArray.push(letters);
+    }
+
+    setInterval(changeWord, 4000);
+
+    setTimeout(() => {
+      document.querySelector('.splash-screen').style.display = 'none';
+      document.querySelector('.content').classList.add('show');
+    }, 6000);
+
+    async function fetchQuranicVerse() {
+      try {
+        const randomVerseId = Math.floor(Math.random() * 6236) + 1; // Quran has 6236 verses
+        const response = await fetch(`https://api.alquran.cloud/v1/ayah/${randomVerseId}`);
+        const data = await response.json();
+
+        if (data && data.data) {
+          const verseText = data.data.text;
+          const verseDetails = `${data.data.surah.name} - Surah ${data.data.surah.number}:${data.data.number}`;
+          const fallbackTranslation = "Their greeting on the Day they meet Him will be peace. And He has prepared for them a noble reward.";
+          
+          document.getElementById('quran-verse').innerHTML = `${verseText} <br> <strong>${verseDetails}</strong>`;
+          document.getElementById('english-verse').innerHTML = `<strong>Translation:</strong> ${data.data.english || fallbackTranslation}`;
+        } else {
+          throw new Error('Verse not found');
+        }
+      } catch (error) {
+        console.error('Error fetching verse:', error);
+        const fallbackVerses = [
+          "إِنَّ مَعَ ٱلْعُسْرِ يُسْرًا",
+          "قُلْ رَبِّ زِدْنِي عِلْمًا.",
+          "إِنَّا خَلَقْنَا الْإِنسَانَ وَنَعْلَمُ مَا تَوَسْوِسُ بِهِ نَفْسُهُ."
+        ];
+        const fallbackVerse = fallbackVerses[Math.floor(Math.random() * fallbackVerses.length)];
+        document.getElementById('quran-verse').innerHTML = `${fallbackVerse} <br> <strong>Fallback Verse</strong>`;
+        document.getElementById('english-verse').innerHTML = `<strong>Translation:</strong> ${fallbackTranslation}`;
+      }
+    }
+
+    fetchQuranicVerse();
+  </script>
+</body>
+</html>
